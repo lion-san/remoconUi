@@ -1,8 +1,16 @@
+$(window).load(function(){
+  //起動時に、リモコンのセッティング有無を確認する
+  //リモコンの設定を今するかどうか、レコメンド
+}
+
+/**
+ * リモコン設定モード 
+ */
 var setting = function(){
 
-  alert("hoge");
   $("#setting").html("設定完了");
   $("#setting").attr("onClick", "confirm()");
+
   $("#btnVU").removeAttr("disabled");
   $("#btnVD").removeAttr("disabled");
   $("#btnPW").removeAttr("disabled");
@@ -18,9 +26,28 @@ var setting = function(){
   $("#btn10").removeAttr("disabled");
   $("#btn11").removeAttr("disabled");
   $("#btn12").removeAttr("disabled");
+
+  //”リモコンを設定します”
+  //リモコンの、XXボタンを押してください
+  settingBtn();
+  //以下、繰り返し
+  
+
+  //これにて、リモコンの設定を終了します
 }
 
 
+//ボタンが押されたか、音声アナウンス
+var settingBtn = function(){
+  //XXボタンを押してください
+  //赤外線受光待
+  //OK
+  //タイムアウト
+}
+
+/**
+ * リモコン設定完了
+ */
 var confirm = function(){
   alert("よろしいですか？");
   $("#setting").html("設定");

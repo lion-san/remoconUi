@@ -13,7 +13,6 @@ $(window).load(function(){
     mm = "0" + mm;
   }
   var today = yyyy + "" + mm + "" + dd;
-  alert(today);
 
   try{
     now = Number(date.getHours().toString() + date.getMinutes().toString());
@@ -38,9 +37,53 @@ $(window).load(function(){
           var start = Number(channel.start_time.replace(":", ""));
           var end = Number(channel.end_time.replace(":", ""));
 
+
           //Now On Air Channels
           if((start < now) && (now < end)){
-            var c = "<button type=\"button\" class=\"col-xs-6 col-sm-4 btn btn-primary btn-lg mybutton\">"+ channel.title +"</button>";
+
+            var station;
+            switch(channel.station){
+              case "DFS00400":
+                station = 1;
+                break;
+
+              case "DFS00408":
+                station = 2;
+                break;
+
+              case "DFS00410":
+                station = 4;
+                break;
+
+              case "DFS00428":
+                station = 5;
+                break;
+
+              case "DFS00418":
+                station = 6;
+                break;
+
+              case "DFS00430":
+                station = 7;
+                break;
+
+              case "DFS00420":
+                station = 8;
+                break;
+
+              case "DFS05C38":
+                station = 9;
+                break;
+
+              case "DFS00440":
+                station = 12;
+                break;
+
+              default:
+                station = -1;
+            }
+
+            var c = "<button type=\"button\" value="+ station +" class=\"col-xs-6 col-sm-4 btn btn-primary btn-lg mybutton\" onClick=\"channelClicked(value)\">"+ channel.title +"</button>";
 
             $("#nowOnAir").append(c);
             //alert(channel.title);
@@ -56,6 +99,9 @@ $(window).load(function(){
     }
   });
 
-
-
 });
+
+
+var channelClicked = function(val){
+  alert(val);
+}
