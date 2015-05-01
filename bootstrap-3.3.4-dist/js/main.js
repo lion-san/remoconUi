@@ -18,7 +18,12 @@ $(window).load(function(){
   var today = yyyy + "" + mm + "" + dd;
 
   try{
-    now = Number(date.getHours().toString() + date.getMinutes().toString());
+    var h = date.getHours();
+    var m = date.getMinutes();
+    if( m < 10)
+      m = "0" + m;
+
+    now = Number(h.toString() + m.toString());
   }
   catch(e){
     alert("Nuber error:now");
