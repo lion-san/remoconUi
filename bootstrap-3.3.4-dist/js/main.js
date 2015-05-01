@@ -12,6 +12,9 @@ $(window).load(function(){
   if(mm < 10){
     mm = "0" + mm;
   }
+  if(dd < 10){
+    dd = "0" + dd;
+  }
   var today = yyyy + "" + mm + "" + dd;
 
   try{
