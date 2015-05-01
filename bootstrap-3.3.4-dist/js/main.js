@@ -111,5 +111,6 @@ $(window).load(function(){
 
 
 var channelClicked = function(val){
-  alert(val);
+
+	Android.showToast(val);
 }
